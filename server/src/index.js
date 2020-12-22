@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = 8081;
 const multer = require("multer");
 const jwt = require('jsonwebtoken');
 require('dotenv').config();

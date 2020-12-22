@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 const { default: Config } = require("../../config");
 const { getTokenFrom } = require("../../utils");
 const usersRouter = require('express').Router()
+
 usersRouter.post('/sign-up', [
     check("firstName", "Họ không được bỏ trống").isLength({ min: 1 }).isString().withMessage("Họ không phù hợp"),
     check("lastName", "Tên không được bỏ trống").isLength({ min: 1 }).isString().withMessage("Tên không phù hợp"),
@@ -40,6 +41,7 @@ usersRouter.post('/sign-up', [
     }
     return res.status(401).send("some error").end()
 });
+
 usersRouter.post("/sign-in", async (req, res) => {
     let user = await User.findOne({ $or: [{ username: req.body.username }, { email: req.body.username }] })
     const passwordCorrect = user === null
@@ -60,6 +62,7 @@ usersRouter.post("/sign-in", async (req, res) => {
     const token = jwt.sign(userForToken, process.env.SECRET);
     res.send(token).status(200).end();
 })
+
 usersRouter.post("/check-auth", async (req, res) => {
     const token = getTokenFrom(req)
     const decodedToken = jwt.verify(token, process.env.SECRET)
@@ -74,6 +77,7 @@ usersRouter.post("/check-auth", async (req, res) => {
         return res.status(401).send("invalid").end()
     }
 })
+
 usersRouter.get("/user-info", async (req, res) => {
     const token = getTokenFrom(req);
     const decodedToken = jwt.verify(token, process.env.SECRET)
