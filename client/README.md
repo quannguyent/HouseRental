@@ -3,6 +3,7 @@
 ## Project setup
 ```
 npm install
+npm install mdbvue
 ```
 
 ### Compiles and hot-reloads for development
