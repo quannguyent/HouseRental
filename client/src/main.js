@@ -1,3 +1,4 @@
+import 'mdbvue/lib/css/mdb.min.css'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
