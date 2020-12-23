@@ -5,7 +5,6 @@
         <router-link to = "About" class="nav-item p-2"><p> About us</p></router-link>
         <p class="nav-item p-2 ml-auto">Welcome <b>{{user_name}}</b></p>
         <p class="nav-item p-2">Logout</p>
-        <button class="btn" @click="is_login = !is_login"> BTN </button>
     </nav>
   </div>
 </template>
@@ -25,7 +24,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
     .hello {
         background-color: #563d7c;
     }

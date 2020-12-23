@@ -1,14 +1,14 @@
 <template>
   <div class="login">
   <!-- Material form login -->
-  <form id="app">
+  <form>
     <p class="h4 text-center mb-4">Sign in</p>
     <div class="grey-text">
-      <mdb-input label="Your email" icon="envelope" type="email"/>
-      <mdb-input label="Your password" icon="lock" type="password"/>
+      <mdb-input label="Your username" icon="envelope" type="text" v-model="username" />
+      <mdb-input label="Your password" icon="lock" type="password" v-model="password" />
     </div>
     <div class="text-center">
-      <mdb-btn @click="sendAPI()">Login</mdb-btn>
+      <mdb-btn type="button" @click="sendAPI()">Login</mdb-btn>
     </div>
   </form>
   <!-- Material form login -->
