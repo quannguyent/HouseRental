@@ -11,7 +11,7 @@ const cors = require("cors");
 const realStateRouter = require("./controllers/realState");
 const usersRouter = require("./controllers/user");
 app.use(express.json());
-app.use(cors({ credentials: true, origin: 'http://localhost:8081' }));
+app.use(cors({ credentials: true, origin: 'http://localhost:8080' }));
 const url = process.env.MONGO_URI
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
