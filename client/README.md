@@ -3,7 +3,7 @@
 ## Project setup
 ```
 npm install
-npm install mdbvue
+npm i --save ant-design-vue
 ```
 
 ### Compiles and hot-reloads for development
