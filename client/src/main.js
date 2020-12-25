@@ -19,14 +19,15 @@ new Vue({
   },
   created() {
     let token = sessionStorage.getItem(token)
-    axios.port("http://localhost:8081/api/user/check-auth",token)
+    axios.post("http://localhost:8081/api/user/check-auth",token)
       .then(res => {
         console.log(res);
+        console.log(token);
       })
       .catch(err => {
         console.log(err);
       })
-    axios.port("http://localhost:8081/api/user/user-info", token)
+    axios.post("http://localhost:8081/api/user/user-info", token)
       .then(res => {
         console.log(res);
       })
