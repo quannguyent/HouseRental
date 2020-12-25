@@ -1,15 +1,15 @@
-import '@fortawesome/fontawesome-free/css/all.min.css'
-import 'bootstrap-css-only/css/bootstrap.min.css'
-import 'mdbvue/lib/mdbvue.css'
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+import axios from 'axios'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
 Vue.config.productionTip = false
+Vue.use(Antd);
 
 var vm = new Vue({
   router,
-<<<<<<< HEAD
   render: h => h(App),
   props : {
     username : String,
@@ -33,9 +33,6 @@ var vm = new Vue({
         console.log(err);
       })
   }
-=======
-  render: h => h(App)
->>>>>>> 42864bb081ba0845771a1a4b93b9eba905f26807
 }).$mount('#app')
 
 vm.check_status = ""

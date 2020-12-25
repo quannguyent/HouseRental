@@ -4,7 +4,7 @@
         <router-link to="/" class="navbar-brand p-2"><p class="text-logo">RENTAL APP </p></router-link>
         <router-link to="About" class="nav-item p-2"><p> About us</p></router-link>
         <router-link class="nav-item p-2 ml-auto" to="Login"><p>Log in</p></router-link>
-        <router-link class="nav-item p-2" to="sign-up"><p>Sign up</p></router-link>
+        <router-link class="nav-item p-2" to="signup"><p>Sign up</p></router-link>
     </nav>
   </div>
 </template>

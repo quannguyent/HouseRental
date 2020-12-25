@@ -20,7 +20,7 @@
     }, 
     
     mounted() {
-      axios.get("http://jsonplaceholder.typicode.com/posts")
+      axios.get("")
         .then(res => {
           this.get_from_api = res.data;
         })
