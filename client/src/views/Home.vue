@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <HeadBar/>
-    
   </div>
 </template>
 

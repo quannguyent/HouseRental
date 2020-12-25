@@ -6,9 +6,10 @@
     <div class="grey-text">
       <mdb-input label="Your username" icon="envelope" type="text" v-model="username" />
       <mdb-input label="Your password" icon="lock" type="password" v-model="password" />
+      <div class="text-center mb-2">{{error}}</div>
     </div>
     <div class="text-center">
-      <mdb-btn type="button" @click="sendAPI()">Login</mdb-btn>
+      <mdb-btn type="button" class="warm-flame-gradient" @click="sendAPI()">Login</mdb-btn>
     </div>
   </form>
   <!-- Material form login -->
@@ -25,7 +26,6 @@
       mdbBtn
     }, 
     props : {
-      check_status : String,
       username : String,
       password : String 
     },
@@ -41,13 +41,13 @@
           "password" : this.password
         }
         axios.post("http://localhost:8081/api/user/sign-in", user) 
-             .then(res => {
-               this.check_status = res.data;
-             })
-             .catch(err => {
-               console.log(err)
-             })
-      }
+            .then(res => {
+              sessionStorage.setItem("token",res.data);
+            })
+            .catch(res => {
+              this.error = res.response.data.error;
+            })
+      },
     }
   }
 
