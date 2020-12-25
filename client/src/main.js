@@ -1,37 +1,28 @@
-import 'ant-design-vue/dist/antd.css';
-import Antd from 'ant-design-vue';
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap-css-only/css/bootstrap.min.css'
+import 'mdbvue/lib/mdbvue.css'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import axios from "axios"
-
 
 Vue.config.productionTip = false
-Vue.use(Antd);
 
-new Vue({
-  name : 'app',
+var vm = new Vue({
   router,
-  render: h => h(App),
-  props : {
-    username : String,
-    password : String,
-  },
-  created() {
-    let token = sessionStorage.getItem(token)
-    axios.port("http://localhost:8081/api/user/check-auth",token)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    axios.port("http://localhost:8081/api/user/user-info", token)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
+  render: h => h(App)
 }).$mount('#app')
+
+vm.check_status = ""
+vm.username = ""
+vm.password = ""
+
+vm.username_note = ""
+vm.password_note = ""
+vm.email_note = ""
+
+vm.user_reg = ""
+vm.pass_reg = ""
+vm.firstname = ""
+vm.lastname = "" 
+vm.email_reg = ""
+vm.err_log = ""

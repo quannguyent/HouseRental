@@ -3,7 +3,6 @@
 ## Project setup
 ```
 npm install
-npm i --save ant-design-vue
 ```
 
 ### Compiles and hot-reloads for development
