@@ -29,11 +29,13 @@
 <script>
 import axios from "axios"
 import {mdbBtn} from 'mdbvue'
+import cookieCRUD from "../mixins/cookie.js"
   export default {
     name : 'login',
     components: {
       mdbBtn
     }, 
+    mixins: [cookieCRUD],
     props : {
     },
     data() {
@@ -51,10 +53,12 @@ import {mdbBtn} from 'mdbvue'
           "username" : this.username,
           "password" : this.password
         }
+
         axios.post("http://localhost:8081/api/user/sign-in", user) 
              .then(res => {
-                this.token = res.data 
-                this.$router.push('/about')
+                this.setCookie("token", res.data, 1)
+                //console.log(document.cookie.token) 
+                this.$router.push('/')
              })
              .catch(err => {
                if (err.response) {

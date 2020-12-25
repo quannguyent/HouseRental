@@ -1,13 +1,32 @@
 <template>
-  <div class="navbar-static-top hello" :class="{invisible : is_login}">
-    <nav class="navbar navbar-static-top navbar-light d-flex justify-content-start"> 
-        <router-link to="/" class="navbar-brand p-2"><p class="text-logo">RENTAL APP </p></router-link>
-        <router-link to="About" class="nav-item p-2"><p> About us</p></router-link>
-        <router-link class="nav-item p-2 ml-auto" to="Login"><p>Log in</p></router-link>
-        <router-link class="nav-item p-2" to="signup"><p>Sign up</p></router-link>
-    </nav>
+  <div id="components-layout-demo-fixed" class="navbar-static-top" :class="{invisible : is_login}">
+    <a-layout-header 
+      breakpoint="lg"
+      collapsed-width="0"
+      @collapse="onCollapse"
+      @breakpoint="onBreakpoint"
+      :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
+      <div class="logo" />
+      <a-menu
+        theme="dark"
+        mode="horizontal"
+        :default-selected-keys="['1']"
+        :style="{ lineHeight: '64px' }"
+      >
+        <a-menu-item key="1">
+          nav 1
+        </a-menu-item>
+        <a-menu-item key="2">
+          nav 2
+        </a-menu-item>
+        <a-menu-item key="3">
+          nav 3
+        </a-menu-item>
+      </a-menu>
+    </a-layout-header>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -23,18 +42,12 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    .hello {
-        background-color: #563d7c;
-    }
-    p {
-        margin-left: 30px;
-        margin-bottom: 0;
-        color: #cbbde2;
-    }
-    p.text-logo {
-        color: white; 
-    } 
-
+<style>
+#components-layout-demo-fixed .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
 </style>

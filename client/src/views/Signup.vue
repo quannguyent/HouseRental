@@ -66,14 +66,26 @@ export default {
             "lastName" : this.lastname
          } 
 
+         const user = {
+            "username" : this.user_reg,
+            "password" : this.pass_reg
+         }   
+         
          axios.post("http://localhost:8081/api/user/sign-up", sent_data) 
               .then(res => {
-                 this.response.data = res.response.data
+                 console.log(res)
               })
               .catch(err => {
                  this.err_log = err.response.data.errorMessage;
               })
-         
+         axios.post("http://localhost:8081/api/user/log-in", user)
+            .then(res => {
+               this.setCookie("token", res.data, 1)
+               this.$router.push('/')
+            })
+            .catch(err => {
+               this.check_status = err.response.data.error
+            })
       } 
    },
 }

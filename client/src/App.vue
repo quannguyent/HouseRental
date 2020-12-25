@@ -1,38 +1,31 @@
 <template>
   <div class="h-100 ">
-    <HeadBar user_name="Vu Cong" />
+    <!-- <HeadBar/> -->
+    <div>
+    <b-button>Button</b-button>
+    <b-button variant="danger">Button</b-button>
+    <b-button variant="success">Button</b-button>
+    <b-button variant="outline-primary">Button</b-button>
+  </div>
+    <!-- <Footer/> -->
     <router-view/>
   </div>
 </template>
 
 <script>
-  import HeadBar from "./components/NavBar.vue"
-  import axios from "axios"; 
+  // import HeadBar from "./components/NavBar.vue"
+  // import Footer from "./components/Footer.vue"
   export default {
     name : 'app',
     components: {
-      HeadBar
+      // HeadBar,
+      // Footer
     }, 
     data() {
       return {
-        get_from_api : []
       }
-    }, 
-    
-    mounted() {
-      axios.get("")
-        .then(res => {
-          this.get_from_api = res.data;
-        })
-        .catch(err => {
-          this.err_log = err.response.data.errorMessage;
-        })
-          
-    } 
-  }   
-  
-
-  
+    },        
+  } 
 </script>
 
 <style>

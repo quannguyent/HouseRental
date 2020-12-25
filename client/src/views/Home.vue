@@ -1,20 +1,17 @@
 <template>
-  <div class="home">
-    <HeadBar user_name="VuCong" />
-    <h1> Rental app</h1>
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>
-import HeadBar from "../components/NavBar"
 export default {
-  name: 'Home',
-  components: {
-    HeadBar
-  }
+
 }
 </script>
 
-<style scoped>
-
+<style>
+#components-layout-demo-responsive .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
 </style>

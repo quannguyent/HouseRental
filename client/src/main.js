@@ -1,12 +1,17 @@
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import axios from 'axios'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import cookieCRUD from "./mixins/cookie.js"
 
 Vue.config.productionTip = false
-Vue.use(Antd);
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 var vm = new Vue({
   router,
@@ -15,22 +20,27 @@ var vm = new Vue({
     username : String,
     password : String,
   },
+  mixins : [cookieCRUD],
   created() {
-    let token = sessionStorage.getItem(token)
-    axios.post("http://localhost:8081/api/user/check-auth",token)
+    const token = this.getCookie("token");
+    axios.post("http://localhost:8081/api/user/check-auth/", token)
       .then(res => {
-        console.log(res);
-        console.log(token);
+        console.log(res)
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.response)
       })
-    axios.post("http://localhost:8081/api/user/user-info", token)
+
+    axios.get("http://localhost:8081/api/user/user-info/", {
+      headers: {
+        'Authorization': 'Bearer '+ token,
+      },
+    })
       .then(res => {
-        console.log(res);
+        console.log(res)
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.response)
       })
   }
 }).$mount('#app')
