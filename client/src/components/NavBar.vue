@@ -1,43 +1,44 @@
 <template>
-  <div id="components-layout-demo-fixed" class="navbar-static-top" :class="{invisible : is_login}">
-    <a-layout-header 
-      breakpoint="lg"
-      collapsed-width="0"
-      @collapse="onCollapse"
-      @breakpoint="onBreakpoint"
-      :style="{ position: 'fixed', zIndex: 1, width: '100%' }">
-      <div class="logo" />
-      <a-menu
-        theme="dark"
-        mode="horizontal"
-        :default-selected-keys="['1']"
-        :style="{ lineHeight: '64px' }"
-      >
-        <a-menu-item key="1">
-          nav 1
-        </a-menu-item>
-        <a-menu-item key="2">
-          nav 2
-        </a-menu-item>
-        <a-menu-item key="3">
-          nav 3
-        </a-menu-item>
-      </a-menu>
-    </a-layout-header>
+  <div>
+    <b-navbar toggleable="lg" type="dark" class="cyan1">
+      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item href="#" to="/room">Phòng trọ</b-nav-item>
+          <b-nav-item href="#" to="/about">Liên hệ</b-nav-item>
+          <b-nav-item href="#" to="/login" v-if="(!isLogin)">Đăng nhập</b-nav-item>
+          <b-nav-item href="#" to="/signup" v-if="(!isLogin)">Đăng ký</b-nav-item>
+          <b-nav-item href="#" v-if="(isLogin)">Xin chào {{username}}</b-nav-item>
+          <b-nav-item href="#" to="/" v-if="(isLogin)" @click="logout()">Đăng xuất</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
 
 <script>
+import cookieCRUD from "../mixins/cookie.js"
 export default {
   name: 'HeadBar',
+  props: {
+    UserInfo: Object,
+  },
   data: () => {
     return {
+      isLogin: true,
     }
-  }, 
-  props: {
-    user_name: String,
-    is_login: Boolean
+  },
+  mixins: [cookieCRUD],
+  methods: {
+    logout(){
+      this.delCookie("token");
+    }
   }
 }
 </script>
@@ -49,5 +50,9 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
   float: left;
+}
+.cyan1 {
+  background-color: #28abb9;
+  position: sticky;
 }
 </style>
