@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <HeadBar/>
+    <HeadBar user_name="VuCong" />
+    <h1> Rental app</h1>
   </div>
 </template>
 
@@ -9,7 +10,7 @@ import HeadBar from "../components/NavBar"
 export default {
   name: 'Home',
   components: {
-    HeadBar,
+    HeadBar
   }
 }
 </script>

@@ -1,36 +1,47 @@
 <template>
-  <div class="login">
-  <!-- Material form login -->
-  <form>
-    <p class="h4 text-center mb-4">Sign in</p>
-    <div class="grey-text">
-      <mdb-input label="Your username" icon="envelope" type="text" v-model="username" />
-      <mdb-input label="Your password" icon="lock" type="password" v-model="password" />
-      <div class="text-center mb-2">{{error}}</div>
-    </div>
-    <div class="text-center">
-      <mdb-btn type="button" class="warm-flame-gradient" @click="sendAPI()">Login</mdb-btn>
-    </div>
-  </form>
-  <!-- Material form login -->
+  <div id="login d-flex align-items-center" >
+    <div class="jumbotron rounded mx-auto d-block col-9">
+      <div class="container d-flex justify-items-center"> 
+       <div class="d-flex flex-column w-100">
+         <div class="mx-auto">
+           <b class="brand"> LOGIN </b>
+         </div>
+
+         <div class="mx-auto mb-4">
+           <input type="text" class="form-control" v-model="username"  />
+         </div>
+
+         <div class="mx-auto mb-4">
+           <input type="password" class="form-control" v-model="password" />
+         </div>
+         <div class="mx-auto mb-4">
+           <mdb-btn gradient="purple" class="mb-4" rounded @click="sendAPI()">Submit</mdb-btn>
+         </div>
+         <div class="mx-auto mb-4">
+           {{check_status}}
+         </div>
+        </div>
+      </div>
+     </div>
   </div>
 </template>
 
 <script>
-  import axios from "axios"
-  import { mdbInput, mdbBtn } from 'mdbvue';
+import axios from "axios"
+import {mdbBtn} from 'mdbvue'
   export default {
     name : 'login',
     components: {
-      mdbInput,
       mdbBtn
     }, 
     props : {
-      username : String,
-      password : String 
     },
     data() {
       return {
+        check_status : "",
+        username : "",
+        password : "",
+        token : ""
       }
     },
      
@@ -41,21 +52,26 @@
           "password" : this.password
         }
         axios.post("http://localhost:8081/api/user/sign-in", user) 
-            .then(res => {
-              sessionStorage.setItem("token",res.data);
-            })
-            .catch(res => {
-              this.error = res.response.data.error;
-            })
-      },
-    }
-  }
-
+             .then(res => {
+                this.token = res.data 
+                this.$router.push('/about')
+             })
+             .catch(err => {
+               if (err.response) {
+                 this.check_status = err.response.data.error
+               }
+             })
+      }
+    }, 
+    
+    
+  }   
+  
 </script>
 
-<style scoped>
-  .login {
-    width: 25vw;
-    margin: auto;
-  }
+<style>
+.brand {
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 </style>

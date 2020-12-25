@@ -1,44 +1,40 @@
 <template>
-  <mdb-navbar expand="lagre" dark color="indigo" class="warm-flame-gradient color-block-5 mb-3 mx-auto z-depth-1">
-    <mdb-navbar-brand href="#">
-      Rental App
-    </mdb-navbar-brand>
-    <mdb-navbar-toggler>
-      <mdb-navbar-nav right>
-        <mdb-nav-item href="#" to="/" active>Trang chủ</mdb-nav-item>
-        <mdb-nav-item href="#" to="room">Nhà trọ</mdb-nav-item>
-        <mdb-nav-item href="#" to="about">Liên hệ</mdb-nav-item>
-        <mdb-nav-item href="#" to="login" v-if="!is_login">Đăng nhập</mdb-nav-item>
-        <mdb-nav-item href="#" to="signup" v-if="!is_login">Đăng ký</mdb-nav-item>
-        <mdb-nav-item href="#" v-if="is_login">Xin chào {user_name}</mdb-nav-item>
-        <mdb-nav-item href="#" @click="logout" v-if="is_login">Đăng xuất</mdb-nav-item>
-      </mdb-navbar-nav>
-    </mdb-navbar-toggler>
-  </mdb-navbar>
+  <div class="navbar-static-top hello" :class="{invisible : is_login}">
+    <nav class="navbar navbar-static-top navbar-light d-flex justify-content-start"> 
+        <router-link to="/" class="navbar-brand p-2"><p class="text-logo">RENTAL APP </p></router-link>
+        <router-link to="About" class="nav-item p-2"><p> About us</p></router-link>
+        <router-link class="nav-item p-2 ml-auto" to="Login"><p>Log in</p></router-link>
+        <router-link class="nav-item p-2" to="sign-up"><p>Sign up</p></router-link>
+    </nav>
+  </div>
 </template>
 
 <script>
-import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem } from 'mdbvue';
 export default {
   name: 'HeadBar',
   data: () => {
     return {
-
     }
   }, 
   props: {
     user_name: String,
     is_login: Boolean
-  },
-  components: {
-    mdbNavbar,
-    mdbNavbarBrand,
-    mdbNavbarToggler,
-    mdbNavbarNav,
-    mdbNavItem
-  },
+  }
 }
 </script>
 
-<style>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+    .hello {
+        background-color: #563d7c;
+    }
+    p {
+        margin-left: 30px;
+        margin-bottom: 0;
+        color: #cbbde2;
+    }
+    p.text-logo {
+        color: white; 
+    } 
+
 </style>

@@ -1,28 +1,28 @@
 <template>
   <div class="about">
-    <a-button type="primary">
-      Primary
-    </a-button>
-    <a-button>Default</a-button>
-    <a-button type="dashed">
-      Dashed
-    </a-button>
-    <a-button type="danger">
-      Danger
-    </a-button>
-    <a-config-provider :auto-insert-space-in-button="false">
-      <a-button type="primary">
-        按钮
-      </a-button>
-    </a-config-provider>
-    <a-button type="primary">
-      按钮
-    </a-button>
-    <a-button type="link">
-      Link
-    </a-button>
+    <div class="bg-secondary text-white d-flex p-5 ">
+      <table >
+        <td>
+          <tr>House rental app</tr>
+          <tr> <h1><b>Make your dream come true!</b></h1> </tr>
+          <tr class="text-wrap col-1">Chúng tôi là nơi cung cấp cho bạn thông tin về những nhà trọ tốt nhất và là nơi bạn có thể đăng tin về nhà trọ của mình </tr>
+        </td>
+      </table>
+
+      <table class="mr-auto p-2 bd-highlight"> 
+        <td>
+          <img class="img-thumbnail" src="https://easy-accomod.netlify.app/static/media/svg-4.be1ccfac.svg" />
+        </td>
+      </table>
+    </div>
   </div>
 </template>
 
-
-
+<script>
+export default {
+  components: {},
+  name : 'About', 
+  props : {
+  } 
+}
+</script>
