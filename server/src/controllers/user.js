@@ -4,8 +4,8 @@ const User = require('../models/user');
 const { check, validationResult } = require('express-validator');
 const { default: Config } = require("../../config");
 const { getTokenFrom } = require("../../utils");
+const path = require("path")
 const usersRouter = require('express').Router()
-
 usersRouter.post('/sign-up', [
     check("firstName", "Họ không được bỏ trống").isLength({ min: 1 }).isString().withMessage("Họ không phù hợp"),
     check("lastName", "Tên không được bỏ trống").isLength({ min: 1 }).isString().withMessage("Tên không phù hợp"),
@@ -41,7 +41,6 @@ usersRouter.post('/sign-up', [
     }
     return res.status(401).send("some error").end()
 });
-
 usersRouter.post("/sign-in", async (req, res) => {
     let user = await User.findOne({ $or: [{ username: req.body.username }, { email: req.body.username }] })
     const passwordCorrect = user === null
@@ -62,7 +61,6 @@ usersRouter.post("/sign-in", async (req, res) => {
     const token = jwt.sign(userForToken, process.env.SECRET);
     res.send(token).status(200).end();
 })
-
 usersRouter.post("/check-auth", async (req, res) => {
     const token = getTokenFrom(req)
     const decodedToken = jwt.verify(token, process.env.SECRET)
@@ -72,27 +70,39 @@ usersRouter.post("/check-auth", async (req, res) => {
     console.log(decodedToken)
     const user = await User.findById(decodedToken.id);
     if (user) {
-        return res.status(200).send("success").end()
+        return res.status(200).json({ imagePath: user.imagePath, message: "success", activeStatus: user.activeStatus }).end()
     } else {
-        return res.status(401).send("invalid").end()
+        return res.status(401).send({ message: "error" }).end()
     }
 })
-
 usersRouter.get("/user-info", async (req, res) => {
     const token = getTokenFrom(req);
     const decodedToken = jwt.verify(token, process.env.SECRET)
     if (!token || !decodedToken.id) {
         return res.status(401).json({ error: 'token missing or invalid' })
     }
+    console.log(decodedToken)
     const user = await User.findById(decodedToken.id);
     console.log(user)
     res.status(200).json(user).end()
-    // res.send({
-    //     firstName : user.firstName,
-    //     lastName : user.lastName,
-    //     phone : user.phone? user.phone : ,
-
-    // })
-
+})
+usersRouter.post("/update-profile", [
+], async (req, res) => {
+    const token = getTokenFrom(req);
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+    if (!token || !decodedToken.id) {
+        return res.status(401).json({ error: 'token missing or invalid' })
+    }
+    console.log("xxx req update profile", req.body);
+    let imagePath = "";
+    if (req.files.length > 0) {
+        imagePath = "/images/" + req.files[0].filename
+    }
+    let userUpdate = { ...req.body, imagePath: imagePath }
+    await User.findByIdAndUpdate(decodedToken.id, userUpdate);
+    res.status(200).end()
+})
+usersRouter.get("/images/:name", async (req, res) => {
+    res.sendFile(path.join(process.cwd(), `/images/${req.params.name}`))
 })
 module.exports = usersRouter    

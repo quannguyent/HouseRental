@@ -2,13 +2,12 @@ const express = require("express");
 const app = express();
 const port = 8081;
 const multer = require("multer");
-const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const mongoose = require('mongoose')
 const cors = require("cors");
-const realStateRouter = require("./controllers/realState");
+const realEstateRouter = require("./controllers/realEstate");
 const usersRouter = require("./controllers/user");
 app.use(express.json());
 app.use(cors({ credentials: true, origin: 'http://localhost:8080' }));
@@ -22,6 +21,7 @@ mongoose.connect(url,)
     .catch(err => console.log("err mongodb ", err))
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
+        console.log(file, "xxx file")
         cb(null, "images");
     },
     filename: (req, file, cb) => {
@@ -29,7 +29,7 @@ const fileStorage = multer.diskStorage({
     }
 })
 app.use(multer({ storage: fileStorage }).any())
-app.use("/real-state", realStateRouter)
+app.use("/api/real-estate", realEstateRouter)
 app.use("/api/user", usersRouter)
 app.listen(port, () =>
     console.log(`Example app listening on port ${port}!`)
