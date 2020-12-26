@@ -1,6 +1,6 @@
 <template>
 <div class="userAccount">
-  <b-card no-body>>
+  <b-card no-body>
     
     <b-card align="center">
       <b-avatar size="72px" margin></b-avatar> 
