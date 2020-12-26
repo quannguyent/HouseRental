@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const realStateSchema = new mongoose.Schema({
+const realEstateSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -14,7 +14,7 @@ const realStateSchema = new mongoose.Schema({
         require: true
     },
     price: {
-        type: Number,
+        type: String,
         require: true
     },
     pricePer: {
@@ -22,23 +22,28 @@ const realStateSchema = new mongoose.Schema({
         require: true
     },
     electricPrice: {
-        type: Number,
+        type: String,
         require: true
     },
     waterPrice: {
-        type: Number,
+        type: String,
         require: true
     },
     typeRealState: {
         type: String,
         require: true
     },
-    city: {
+    size: {
+        type: String,
+        require: true,
+        index: true,
+    },
+    state: {
         type: String,
         require: true,
         index: true
     },
-    state: {
+    district: {
         type: String,
         require: true,
         index: true
@@ -52,32 +57,55 @@ const realStateSchema = new mongoose.Schema({
         require: true
     },
     imagePath: {
-        type: String,
+        type: Array,
         require: true
     },
     userId: {
         type: String,
-        require: true
+        require: true,
+        index: true
     },
     createTime: {
         type: Number,
         require: true
     },
+    bedroom: {
+        type: String,
+        require: true
+    },
+    bathroom: {
+        type: String,
+        require: true
+    },
+    isPrivate: {
+        type: String,
+        require: true
+    },
+    kitchenDetail: {
+        type: String,
+        require: true
+    },
     status: {
-        type: Boolean,
+        type: String,
         require: true,
-        default : false
+        default: "Chưa được thuê"
+    },
+    isApprove: {
+        type: Boolean,
+        requie: true,
+        default: false
     }
 })
 
-realStateSchema.set('toJSON', {
+realEstateSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString()
         delete returnedObject._id
         delete returnedObject.__v
+        delete returnedObject.userId
     }
 })
 
-const RealState = mongoose.model('RealState', realStateSchema)
+const RealEstate = mongoose.model('RealEstate', realEstateSchema)
 
-module.exports = RealState
+module.exports = RealEstate

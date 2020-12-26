@@ -1,10 +1,10 @@
 <template>
-   <div class="login d-flex align-items-centerr"> 
-      <div class="jumbotron rounded mx-auto d-block col-9">
+   <div class="login align-items-centerr"> 
+      <div class="jumbotron rounded mx-auto d-block w-75">
          <div class="container d-flex justify-items-center">
             <div class="d-flex flex-column w-100">
                <div class="mx-auto">
-                  <b class="brand"> SIGN UP </b>
+                  <b class="brand"> Đăng ký </b>
                </div>
 
                <div class="mx-auto mb-4">

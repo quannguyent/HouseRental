@@ -65,6 +65,18 @@
   } 
 </script>
 
-<style>
+<style scoped>
+.cyan1 {
+  background-color: #28abb9;
+}
+.cyan2 {
+  background-color: #2D6187;
+}
+.cyan3 {
+  background-color: #EFFAD3;
+}
+.cyan4 {
+  background-color: #a8dda8;
+}
 
 </style>

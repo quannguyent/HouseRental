@@ -4,15 +4,15 @@
       <div class="container d-flex justify-items-center"> 
        <div class="d-flex flex-column w-100">
          <div class="mx-auto">
-           <b class="brand"> LOGIN </b>
+           <b class="brand"> Đăng nhập </b>
          </div>
 
          <div class="mx-auto mb-4">
-           <input type="text" class="form-control" v-model="username"  />
+           <input type="text" class="form-control" v-model="username" placeholder="Username" />
          </div>
 
          <div class="mx-auto mb-4">
-           <input type="password" class="form-control" v-model="password" />
+           <input type="password" class="form-control" v-model="password" placeholder="Password" />
          </div>
          <div class="mx-auto mb-4">
            <mdb-btn gradient="purple" class="mb-4" rounded @click="sendAPI()">Submit</mdb-btn>
