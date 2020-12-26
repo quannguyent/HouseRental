@@ -67,7 +67,7 @@ const realEstateSchema = new mongoose.Schema({
         index: true
     },
     createTime: {
-        type: Number,
+        type: Date,
         require: true
     },
     bedroom: {
@@ -79,7 +79,7 @@ const realEstateSchema = new mongoose.Schema({
         require: true
     },
     isPrivate: {
-        type: String,
+        type: Boolean,
         require: true
     },
     kitchenDetail: {

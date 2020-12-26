@@ -47,6 +47,7 @@ usersRouter.post("/sign-in", async (req, res) => {
     const passwordCorrect = user === null
         ? false
         : await bcrypt.compare(req.body.password, user.password);
+    
     if (!(user && passwordCorrect)) {
         console.log("xxx user", passwordCorrect)
         return res.status(400).json({
