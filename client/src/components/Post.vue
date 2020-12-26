@@ -7,97 +7,84 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+            <b-img thumbnail fluid src="room.jpg" alt="Image 1"></b-img>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+                <b-container class="bv-example-row" style="color:#2D6187">
+                  <b-row class="mb-0">
+                    <b-col sm="12"> 
+                        <h4><b-icon icon="house-fill"></b-icon> Phòng uetx{{roomName}}</h4>
+                    </b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col sm="12"><p class="font-italic" style="font-size:90%"><b-icon-geo-alt-fill class="h4"/> Số 144, Xuân Thủy, Cầu Giấy, Hà Nội{{address}}</p></b-col>
+                  </b-row>
+                  <b-row class="mt-0">
+                    <b-col sm="10">
+                      <p><b-icon-tag-fill class="h4"/> $3000{{price}}/tháng {{pricePer}}</p>
+                    </b-col>
+                    <b-col sm="1" class="h4">
+                      <b-icon style="color:#28abb9" icon="heart"></b-icon>
+                    </b-col>
+                  </b-row>
+                </b-container>
               </div>
             </div>
           </div>
         </div>
 
+
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+            <b-img thumbnail fluid src="room.jpg" alt="Image 1"></b-img>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+                <b-container class="bv-example-row" style="color:#2D6187">
+                  <b-row class="mb-0">
+                    <b-col sm="12"> 
+                        <h4><b-icon icon="house-fill"></b-icon> Phòng uetx{{roomName}}</h4>
+                    </b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col sm="12"><p class="font-italic" style="font-size:90%"><b-icon-geo-alt-fill class="h4"/> Số 144, Xuân Thủy, Cầu Giấy, Hà Nội{{address}}</p></b-col>
+                  </b-row>
+                  <b-row class="mt-0">
+                    <b-col sm="10">
+                      <p><b-icon-tag-fill class="h4"/> $3000{{price}}/tháng {{pricePer}}</p>
+                    </b-col>
+                    <b-col sm="1" class="h4">
+                      <b-icon style="color:#28abb9" icon="heart"></b-icon>
+                    </b-col>
+                  </b-row>
+                </b-container>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+            <b-img thumbnail fluid src="room.jpg" alt="Image 1"></b-img>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+                <b-container class="bv-example-row" style="color:#2D6187">
+                  <b-row class="mb-0">
+                    <b-col sm="12"> 
+                        <h4><b-icon icon="house-fill"></b-icon> Phòng uetx{{roomName}}</h4>
+                    </b-col>
+                  </b-row>
+                  <b-row>
+                    <b-col sm="12"><p class="font-italic" style="font-size:90%"><b-icon-geo-alt-fill class="h4"/> Số 144, Xuân Thủy, Cầu Giấy, Hà Nội{{address}}</p></b-col>
+                  </b-row>
+                  <b-row class="mt-0">
+                    <b-col sm="10">
+                      <p><b-icon-tag-fill class="h4"/> $3000{{price}}/tháng {{pricePer}}</p>
+                    </b-col>
+                    <b-col sm="1" class="h4">
+                      <b-icon style="color:#28abb9" icon="heart"></b-icon>
+                    </b-col>
+                  </b-row>
+                </b-container>
               </div>
             </div>
           </div>

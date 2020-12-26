@@ -15,7 +15,7 @@
            <input type="password" class="form-control" v-model="password" placeholder="Password" />
          </div>
          <div class="mx-auto mb-4">
-           <mdb-btn gradient="purple" class="mb-4" rounded @click="sendAPI()">Submit</mdb-btn>
+           <b-btn gradient="purple" class="mb-4" rounded @click="sendAPI()">Submit</b-btn>
          </div>
          <div class="mx-auto mb-4">
            {{check_status}}
@@ -28,12 +28,11 @@
 
 <script>
 import axios from "axios"
-import {mdbBtn} from 'mdbvue'
 import cookieCRUD from "../mixins/cookie.js"
   export default {
     name : 'login',
     components: {
-      mdbBtn
+
     }, 
     mixins: [cookieCRUD],
     props : {

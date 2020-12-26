@@ -12,7 +12,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#" to="/room">Phòng trọ</b-nav-item>
+          <b-nav-item href="#" to="/room" >Phòng trọ</b-nav-item>
           <b-nav-item href="#" to="/about">Liên hệ</b-nav-item>
           <b-nav-item href="#" to="/login" v-if="(!isLogin)">Đăng nhập</b-nav-item>
           <b-nav-item href="#" to="/signup" v-if="(!isLogin)">Đăng ký</b-nav-item>

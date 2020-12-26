@@ -38,16 +38,12 @@ const routes = [
     name: 'admin',
     component: () => import('../views/Admin.vue')
   },
-  {
-    path: '/room',
-    name: 'room',
-    component: () => import('../views/Admin.vue')
-  }
   
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode : 'history'
 })
 
 export default router

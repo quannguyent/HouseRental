@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <div align="center">
-      <b-jumbotron header="EasyAccomond" lead="Tìm nhà trọ mong muốn của mình">
-        <b-input-group size="lg" class="mb-2 w-40">
+      <b-jumbotron header="EasyAccomond" lead="Tìm nhà trọ mong muốn của mình" class="mb-0" style="min-height:93vh !important; padding-top:10vw">
+        <b-input-group size="lg" class="w-40">
           <b-form-input type="search" placeholder="Tìm theo quận, huyện, thành phố" v-on:keyup.enter="{}"></b-form-input>
           <b-input-group-prepend>
             <b-nav-item active to='/room' style="list-style-type: none;">
@@ -10,6 +10,14 @@
             </b-nav-item>
           </b-input-group-prepend>
         </b-input-group>
+      </b-jumbotron>
+    </div>
+    <div>
+      <b-jumbotron bg-variant="light" class="p-5" style="max-height:10vh">
+        <div class="ml-5" style="color:#28abb9, font-size:20%">
+          <p class="h4">Phòng trọ</p>
+          <p class="lead">yêu thích</p>
+        </div>
       </b-jumbotron>
     </div>
     <Post/>
@@ -32,14 +40,13 @@ export default {
     margin: 16px;
   }
   .cyan1 {
-    background-color: #28abb9;
+    color: #28abb9;
   }
   .cyan2 {
-    background-color: #2D6187;
+    color: #2D6187;
   }
   .cyan3 {
     background-color: #EFFAD3;
-    color: black
   }
   .cyan4 {
     background-color: #a8dda8;
