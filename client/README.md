@@ -3,7 +3,12 @@
 ## Project setup
 ```
 npm install
-npm i --save ant-design-vue
+
+# With npm
+npm install vue bootstrap-vue bootstrap
+
+# With yarn
+yarn add vue bootstrap-vue bootstrap
 ```
 
 ### Compiles and hot-reloads for development

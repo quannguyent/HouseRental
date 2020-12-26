@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" class="cyan1" style="position:sticky">
-      <b-navbar-brand href="#" class="md-0 display-1">
+      <b-navbar-brand href="#" to="/" class="md-0 display-1">
         <b-icon-geo-alt-fill/> 
         EasyAccomond
       </b-navbar-brand>
