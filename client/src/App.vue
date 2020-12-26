@@ -30,8 +30,9 @@
       } 
     },
     mixins : [cookieCRUD],
-    created() {
+    mounted() {
       const token = this.getCookie("token");
+      console.log(token);
       axios.post("http://localhost:8081/api/user/check-auth/",{},{
         headers: {
           'Authorization': 'Bearer '+ token,
@@ -65,7 +66,7 @@
   } 
 </script>
 
-<style scoped>
+<style>
 .cyan1 {
   background-color: #28abb9;
 }
@@ -78,5 +79,4 @@
 .cyan4 {
   background-color: #a8dda8;
 }
-
 </style>

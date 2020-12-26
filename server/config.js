@@ -4,5 +4,6 @@ class Config {
     static timeOneMonth = 2592000000;
     static saltRounds = 10;
     static imagePathDefault = "/images/default_user.png"
+    static defaultStatus = "Chưa được thuê"
 }
 export default Config

@@ -1,6 +1,6 @@
 <template>
 <div class="userAccount">
-  <b-card no-body>>
+  <b-card no-body>
     <b-card align="center">
       <h2 class="cyan2">Admin</h2>
     </b-card>

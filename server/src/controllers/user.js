@@ -4,7 +4,8 @@ const User = require('../models/user');
 const { check, validationResult } = require('express-validator');
 const { default: Config } = require("../../config");
 const { getTokenFrom } = require("../../utils");
-const path = require("path")
+const path = require("path");
+const RealEstate = require("../models/realEstate");
 const usersRouter = require('express').Router()
 usersRouter.post('/sign-up', [
     check("firstName", "Họ không được bỏ trống").isLength({ min: 1 }).isString().withMessage("Họ không phù hợp"),
@@ -70,7 +71,7 @@ usersRouter.post("/check-auth", async (req, res) => {
     console.log(decodedToken)
     const user = await User.findById(decodedToken.id);
     if (user) {
-        return res.status(200).json({ imagePath: user.imagePath, message: "success", activeStatus: user.activeStatus }).end()
+        return res.status(200).json({ imagePath: user.imagePath, message: "success", activeStatus: user.activeStatus, typeAccount: user.typeAccount }).end()
     } else {
         return res.status(401).send({ message: "error" }).end()
     }
@@ -102,7 +103,56 @@ usersRouter.post("/update-profile", [
     await User.findByIdAndUpdate(decodedToken.id, userUpdate);
     res.status(200).end()
 })
+usersRouter.post("/favorites", async (req, res) => {
+    const token = getTokenFrom(req);
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+    if (!token || !decodedToken.id) {
+        return res.status(401).json({ error: 'token missing or invalid' })
+    }
+    let user = await User.findById(decodedToken.id);
+    return res.status(200).json(user.listFavo).end()
+})
+usersRouter.post("/add-favorites", async (req, res) => {
+    const token = getTokenFrom(req);
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+    if (!token || !decodedToken.id) {
+        return res.status(401).json({ error: 'token missing or invalid' })
+    }
+    let idRealEstate = req.body.id;
+    const realEstate = await RealEstate.findById(idRealEstate);
+    console.log(idRealEstate)
+    if (realEstate) {
+        await User.findByIdAndUpdate(decodedToken.id, { $addToSet: { listFavo: idRealEstate } });
+        return res.status(200).send("success").end()
+    }
+    return res.status(400).send("Bad request")
+})
 usersRouter.get("/images/:name", async (req, res) => {
     res.sendFile(path.join(process.cwd(), `/images/${req.params.name}`))
 })
+usersRouter.post("/get-list-account", async (req, res) => {
+    const token = getTokenFrom(req);
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+    if (!token || !decodedToken.id) {
+        return res.status(401).json({ error: 'token missing or invalid' })
+    }
+    let user = await User.findById(decodedToken.id);
+
+    let typeAccount = user.typeAccount
+    if (typeAccount && typeAccount === Config.ADMIN_ACCOUNT) {
+        let users = await User.find({ activeStatus: false }).exists("phone", true).exists("cardId", true).exists("address", true)
+        return res.status(200).json(users);
+    }
+    return res.status(400).end()
+})
+// usersRouter.post("create-admin-account", async (req, res) => {
+//     const passwordHash = await bcrypt.hash("admin", Config.saltRounds)
+//     let user = {
+//         ...req.body,
+//         password: passwordHash,
+//         status: true,
+//         typeAccount: Config.MEMBER_ACCOUNT,
+//     }
+// })
+
 module.exports = usersRouter    

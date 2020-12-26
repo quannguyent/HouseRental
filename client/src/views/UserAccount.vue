@@ -10,7 +10,7 @@
 
     <b-tabs pills card vertical variant="info">
       
-      <b-tab title="Thông tin người dùng" active class="w-100"><b-card-text>
+      <b-tab title="Thông tin người dùng" active class="w-100 cyan1"><b-card-text>
           <UserInfo/>
       </b-card-text></b-tab>
 
@@ -52,9 +52,9 @@ export default {
 }
 </script>
 
-<style>
+<style  scoped>
   .cyan1 {
-  background-color: #28abb9;
+    background-color: #28abb9 !important;
   }
   .cyan2 {
     color: #2D6187;
@@ -65,4 +65,4 @@ export default {
   .cyan4 {
     background-color: #a8dda8;
   }
-</style>
+</style>>

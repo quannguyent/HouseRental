@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { default: Config } = require('../../config')
 
 const realEstateSchema = new mongoose.Schema({
     title: {
@@ -29,7 +30,7 @@ const realEstateSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    typeRealState: {
+    typeRealEstate: {
         type: String,
         require: true
     },
@@ -88,13 +89,13 @@ const realEstateSchema = new mongoose.Schema({
     status: {
         type: String,
         require: true,
-        default: "Chưa được thuê"
+        default: Config.defaultStatus
     },
     isApprove: {
         type: Boolean,
         requie: true,
         default: false
-    }
+    },
 })
 
 realEstateSchema.set('toJSON', {
