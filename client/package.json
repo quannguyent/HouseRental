@@ -9,10 +9,14 @@
     "start": "vue-cli-service serve --open"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.21.1",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue": "^2.6.12",
+    "vue-router": "^3.2.0",
+    "vue-toast-notification": "^0.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

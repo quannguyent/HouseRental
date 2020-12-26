@@ -38,7 +38,23 @@ const routes = [
     name: 'admin',
     component: () => import('../views/Admin.vue')
   },
-  
+
+{
+    path: "/room",
+    name: 'Room',
+    component: () => import('../views/room/roomTable.vue')
+    
+  },
+  {
+    path: "/room/new",
+    name: 'RoomNew',
+    component: () => import('../views/room/formRoom.vue')
+  },
+  {
+    path: "/room/:id",
+    name: 'RoomEdit',
+    component: () => import('../views/room/formRoom.vue')
+  },
 ]
 
 const router = new VueRouter({

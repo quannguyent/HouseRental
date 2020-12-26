@@ -31,9 +31,6 @@ import axios from "axios"
 import cookieCRUD from "../mixins/cookie.js"
   export default {
     name : 'login',
-    components: {
-
-    }, 
     mixins: [cookieCRUD],
     props : {
     },
@@ -65,9 +62,7 @@ import cookieCRUD from "../mixins/cookie.js"
                }
              })
       }
-    }, 
-    
-    
+    },
   }   
   
 </script>
