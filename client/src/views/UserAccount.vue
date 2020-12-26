@@ -5,7 +5,7 @@
     <b-card align="center">
       <b-avatar size="72px" margin></b-avatar> 
         <br>
-        <h2 class="cyan2">Quân Nguyễn {{ username }}</h2>
+        <h2 class="cyan2">Quân Nguyễn - {{usr}}</h2>
     </b-card>
 
     <b-tabs pills card vertical variant="info">
@@ -48,7 +48,13 @@ export default {
       Chat,
       Estate,
       Notification
-    }
+    },
+    data () {
+      return {
+         usr: ""
+      }
+    },
+    
 }
 </script>
 
