@@ -39,6 +39,17 @@
         label-cols-lg="3"
         content-cols-sm
         content-cols-lg="7"
+        label="SĐT:"
+        label-for="input-horizontal">
+            <b-form-input id="input-horizontal" :disabled="isEditable" v-model="phone"> 
+            </b-form-input> 
+        </b-form-group>
+
+        <b-form-group id="fieldset-horizontal"
+        label-cols-sm="4"
+        label-cols-lg="3"
+        content-cols-sm
+        content-cols-lg="7"
         label="Địa chỉ thường trú:"
         label-for="input-horizontal">
             <b-form-input id="input-horizontal" :disabled="isEditable" v-model="identityCard"> 

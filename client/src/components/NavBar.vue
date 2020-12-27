@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" class="cyan1" style="position:sticky">
+    <b-navbar toggleable="lg" type="dark" style="background-color:#28abb9" fixed="top">
+
       <b-navbar-brand href="#" to="/" class="md-0 display-1">
         <b-icon-geo-alt-fill/> 
         EasyAccomond
@@ -57,8 +58,5 @@ export default {
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
   float: left;
-}
-.cyan1 {
-  background-color: #28abb9;
 }
 </style>

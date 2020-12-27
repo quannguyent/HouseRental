@@ -21,3 +21,14 @@
   </b-card>
 </div>
 </template>
+
+<script>
+  import UserManagement from "./Admin/UserManagement"
+  import PostManagement from "./Admin/PostManagement"
+  export default {
+    components: {
+      UserManagement,
+      PostManagement
+    }
+  }
+</script>

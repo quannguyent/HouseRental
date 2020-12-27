@@ -131,7 +131,7 @@ usersRouter.post("/add-favorites", async (req, res) => {
 usersRouter.get("/images/:name", async (req, res) => {
     res.sendFile(path.join(process.cwd(), `/images/${req.params.name}`))
 })
-usersRouter.post("/get-list-account", async (req, res) => {
+usersRouter.get("/get-list-account", async (req, res) => {
     const token = getTokenFrom(req);
     const decodedToken = jwt.verify(token, process.env.SECRET)
     if (!token || !decodedToken.id) {
@@ -141,7 +141,7 @@ usersRouter.post("/get-list-account", async (req, res) => {
 
     let typeAccount = user.typeAccount
     if (typeAccount && typeAccount === Config.ADMIN_ACCOUNT) {
-        let users = await User.find({ activeStatus: false }).exists("phone", true).exists("cardId", true).exists("address", true)
+        let users = await User.find({ activeStatus: false })
         return res.status(200).json(users);
     }
     return res.status(400).end()
