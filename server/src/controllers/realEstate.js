@@ -20,17 +20,18 @@ realEstateRouter.post("/add-property", async (req, res) => {
     }
     console.log(decodedToken)
     console.log(req.body);
-    if (req.body.files.length < 3) {
+    if (req.body.imagePath.length < 3) {
         return res.status(400).send({ errorMessage: "Cần ít nhất 3 ảnh", errorType: "image" })
     } else {
         let arrImagePath = [];
-        req.body.files.forEach(el => {
-            arrImagePath.push("/images/" + el)
+        req.body.imagePath.forEach(el => {
+            arrImagePath.push(el)
         })
         let realEstate = new RealEstate({
             ...req.body,
             imagePath: arrImagePath,
             status: false,
+            isApprove: false,
             userId: decodedToken.id,
             createTime: new Date().getTime()
         })
@@ -46,7 +47,7 @@ realEstateRouter.post("/for-fake-data", (req, res) => {
             console.log(req.files)
             let food = new RealEstate({
                 ...req.body,
-                imagePath: "/images/" + el.filename
+                imagePath: el.filename
             })
             await food.save()
         })
@@ -75,11 +76,71 @@ realEstateRouter.post("/edit-property/:id", async (req, res) => {
     if (!token || !decodedToken.id) {
         return res.status(401).json({ error: 'token missing or invalid' })
     }
-    const realEstate = await RealEstate.findOneAndUpdate({ _id: id }, req.body, {
+    await RealEstate.findOneAndUpdate({ _id: id }, { ...req.body, isApprove: false }, {
     new: true,
     })
     console.log(req.body)
     res.status(200).end()
 });
+
+//xóa
+realEstateRouter.delete("/delete-property/:id", async (req, res) => {
+    const id = req.params.id;
+    const token = getTokenFrom(req)
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+    if (!token || !decodedToken.id) {
+        return res.status(401).json({ error: 'token missing or invalid' })
+    }
+    const realEstate = await RealEstate.findOne({_id: id,});
+    if (!realEstate) return res.status(401).json({ error: 'không tìm thấy người dùng' })
+    await RealEstate.deleteOne({ _id: id });
+    res.status(200).end()
+});
     
+// get all
+realEstateRouter.get("/get-propertysView", async (req, res) => {    
+    let listProperty = await RealEstate.find({ isApprove: true })
+    res.status(200).json(listProperty)
+})
+//get with filter
+const searchRoom = async (filter) => {
+  const { filterTitle, skipCount, maxResultCount, filterAddress, filterNearbyPlace, filterPrice, filterArea } = filter;
+   var totalCount;
+  await Room.find().exec(function (err, results) {    
+    totalCount = results.length
+  });
+  const room = await Room
+    .find({
+       $and: [
+        { title: { $regex: new RegExp(`.*${filterTitle}.*`), $options: "i" } },
+        { address: { $regex: new RegExp(`.*${filterAddress}.*`), $options: "i" } },
+        { nearbyPlace: { $regex: new RegExp(`.*${filterNearbyPlace}.*`), $options: "i" } },
+      ]
+    }) 
+    .exec();
+  return { totalCount, room };
+};
+
+realEstateRouter.get("/get-filter-property", async (req, res) => {
+    const realEstate = await RealEstate.findOne({_id: id,});
+    if (!realEstate) return res.status(401).json({ error: 'không tìm thấy người dùng' })
+    await RealEstate.deleteOne({ _id: id });
+    res.status(200).end()
+});
+
+//approve room
+realEstateRouter.post("/approve-property/:id", async (req, res) => {
+    const id = req.params.id;
+    // const token = getTokenFrom(req)
+    // const decodedToken = jwt.verify(token, process.env.SECRET)
+    // if (!token || !decodedToken.id) {
+    //     return res.status(401).json({ error: 'token missing or invalid' })
+    // }
+    await RealEstate.findOneAndUpdate({ _id: id }, {isApprove: true}, {
+    new: true,
+    })
+    console.log(req.body)
+    res.status(200).end()
+});
+
 module.exports = realEstateRouter
