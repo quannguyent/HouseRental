@@ -7,7 +7,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <b-img thumbnail fluid src="room.jpg" alt="Image 1"></b-img>
+            <b-img thumbnail fluid src="img/room.jpg" alt="Image 1"></b-img>
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
                 <b-container class="bv-example-row" style="color:#2D6187">
@@ -36,7 +36,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <b-img thumbnail fluid src="room.jpg" alt="Image 1"></b-img>
+            <b-img thumbnail fluid src="img/room.jpg" alt="Image 1"></b-img>
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
                 <b-container class="bv-example-row" style="color:#2D6187">
@@ -64,7 +64,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <b-img thumbnail fluid src="room.jpg" alt="Image 1"></b-img>
+            <b-img thumbnail fluid src="img/room.jpg" alt="Image 1"></b-img>
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
                 <b-container class="bv-example-row" style="color:#2D6187">

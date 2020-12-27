@@ -28,8 +28,6 @@ export default {
                      console.log(err.response)
                      return null
                  })
-
-            
         }
 
     }

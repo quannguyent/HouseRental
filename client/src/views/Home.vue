@@ -4,7 +4,7 @@
       <b-jumbotron header="EasyAccomond" lead="Tìm nhà trọ mong muốn của mình" class="mb-0" 
       style="min-height:100vh !important;
         padding-top:10vw;
-        background-image: url('background.jpg');
+        background-image: url('img/background.jpg');
         background-repeat: no-repeat; 
         background-attachment: fixed;
         background-size: cover;
