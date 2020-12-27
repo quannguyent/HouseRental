@@ -3,13 +3,13 @@
     <div align="center">
       <b-jumbotron header="EasyAccomond" lead="Tìm nhà trọ mong muốn của mình" class="mb-0" 
       style="min-height:100vh !important;
-        padding-top:15vw;
+        padding-top:12vw;
         background-image: url('img/background.jpg');
         background-repeat: no-repeat; 
         background-attachment: fixed;
         background-size: cover;
         background-size: 100% 100%;">
-           <b-button variant="outline-primary" style="backgroundColor:#28abb9 " active to='/roomSearch'>Khám phá ngay
+           <b-button variant="outline-primary" style="backgroundColor:#2d6187 " active to='/roomSearch'>Khám phá ngay
               <b-icon icon="search" style="color:white" class="ml-2"></b-icon>
            </b-button>
       </b-jumbotron>

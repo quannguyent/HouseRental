@@ -1,20 +1,10 @@
 <template>
   <div class="about">
-    <div class="bg-secondary text-white d-flex p-5 ">
-      <table >
-        <td>
-          <tr>House rental app</tr>
-          <tr> <h1><b>Make your dream come true!</b></h1> </tr>
-          <tr class="text-wrap col-1">Chúng tôi là nơi cung cấp cho bạn thông tin về những nhà trọ tốt nhất và là nơi bạn có thể đăng tin về nhà trọ của mình </tr>
-        </td>
-      </table>
-
-      <table class="mr-auto p-2 bd-highlight"> 
-        <td>
-          <img class="img-thumbnail" src="https://easy-accomod.netlify.app/static/media/svg-4.be1ccfac.svg" />
-        </td>
-      </table>
-    </div>
+    <b-jumbotron header="Về chúng tôi" lead="Tìm nhà trọ mong muốn của mình" class="title">
+      <b-button variant="info" href="#">Liên hệ ngay</b-button>
+    </b-jumbotron>
+    <b-jumbotron header="Đội ngũ phát triển" lead="Xin gửi lời cảm ơn đến các thành viên tham gia dự án" class="thanks" align="right" bg-variant="light">
+    </b-jumbotron>
   </div>
 </template>
 
@@ -26,3 +16,21 @@ export default {
   } 
 }
 </script>
+
+<style>
+.about {
+
+}
+.title {
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 50vh;
+  padding-left: 10vw;
+}
+.thanks {
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 50vh;
+  padding-right: 10vw;
+}
+</style>
