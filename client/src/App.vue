@@ -70,9 +70,6 @@
 .cyan1 {
   background-color: #28abb9;
 }
-.cyan2 {
-  background-color: #2D6187;
-}
 .cyan3 {
   background-color: #EFFAD3;
 }

@@ -55,6 +55,16 @@ const routes = [
     name: 'RoomEdit',
     component: () => import('../views/room/formRoom.vue')
   },
+  {
+    path: "/roomSearch",
+    name: 'RoomSearch',
+    component: () => import('../views/room/roomSearch.vue')
+  },
+  {
+    path: "/roomDetail/:id",
+    name: 'RoomDetail',
+    component: () => import('../views/room/roomDetail.vue')
+  },
 ]
 
 const router = new VueRouter({

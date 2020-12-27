@@ -3,7 +3,7 @@
     <b-row>
         <b-col cols="10"><b-table striped hover :items="listUser"></b-table></b-col>
         <b-col cols="1">Phê duyệt</b-col>
-        <b-col cols="1">Nhắn tin</b-col>
+        <b-col cols="1">Nhắn tin</b-col>    
     </b-row>
   </div>
 </template>

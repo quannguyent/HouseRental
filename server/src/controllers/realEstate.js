@@ -47,6 +47,7 @@ realEstateRouter.post("/for-fake-data", (req, res) => {
             console.log(req.files)
             let food = new RealEstate({
                 ...req.body,
+                isApprove: false,
                 imagePath: el.filename
             })
             await food.save()
@@ -102,30 +103,20 @@ realEstateRouter.get("/get-propertysView", async (req, res) => {
     let listProperty = await RealEstate.find({ isApprove: true })
     res.status(200).json(listProperty)
 })
-//get with filter
-const searchRoom = async (filter) => {
-  const { filterTitle, skipCount, maxResultCount, filterAddress, filterNearbyPlace, filterPrice, filterArea } = filter;
-   var totalCount;
-  await Room.find().exec(function (err, results) {    
-    totalCount = results.length
-  });
-  const room = await Room
-    .find({
-       $and: [
-        { title: { $regex: new RegExp(`.*${filterTitle}.*`), $options: "i" } },
-        { address: { $regex: new RegExp(`.*${filterAddress}.*`), $options: "i" } },
-        { nearbyPlace: { $regex: new RegExp(`.*${filterNearbyPlace}.*`), $options: "i" } },
-      ]
-    }) 
-    .exec();
-  return { totalCount, room };
-};
 
-realEstateRouter.get("/get-filter-property", async (req, res) => {
-    const realEstate = await RealEstate.findOne({_id: id,});
-    if (!realEstate) return res.status(401).json({ error: 'không tìm thấy người dùng' })
-    await RealEstate.deleteOne({ _id: id });
-    res.status(200).end()
+realEstateRouter.post("/get-property-filter", async (req, res) => {
+    const { title, addressDetail, typeRealEstate } = req.body;
+
+    const realEstate = await RealEstate.find({
+        $and: [
+        { title: { $regex: new RegExp(`.*${title}.*`), $options: "i" } },
+        { addressDetail: { $regex: new RegExp(`.*${addressDetail}.*`), $options: "i" } },
+        { typeRealEstate: { $regex: new RegExp(`.*${typeRealEstate}.*`), $options: "i" } },
+        {isApprove: true}
+      ]
+    }).exec();
+    if (!realEstate) return res.status(401).json({ error: 'không có phòng nào khớp với những điều kiện trên' })
+    res.status(200).json(realEstate)
 });
 
 //approve room
