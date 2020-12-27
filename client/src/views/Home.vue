@@ -3,20 +3,15 @@
     <div align="center">
       <b-jumbotron header="EasyAccomond" lead="Tìm nhà trọ mong muốn của mình" class="mb-0" 
       style="min-height:100vh !important;
-        padding-top:10vw;
+        padding-top:15vw;
         background-image: url('img/background.jpg');
         background-repeat: no-repeat; 
         background-attachment: fixed;
         background-size: cover;
         background-size: 100% 100%;">
-        <b-input-group size="lg" class="w-40" fixed="top">
-          <b-form-input type="search" placeholder="Tìm theo quận, huyện, thành phố" v-on:keyup.enter="{}"></b-form-input>
-          <b-input-group-prepend>
-            <b-nav-item active to='/room' style="list-style-type: none;">
-              <b-icon icon="search" style="color:#2D6187"></b-icon>
-            </b-nav-item>
-          </b-input-group-prepend>
-        </b-input-group>
+           <b-button variant="outline-primary" style="backgroundColor:#28abb9 " active to='/roomSearch'>Khám phá ngay
+              <b-icon icon="search" style="color:white" class="ml-2"></b-icon>
+           </b-button>
       </b-jumbotron>
     </div>
     <div>
@@ -65,7 +60,7 @@ export default {
     color: #28abb9;
   }
   .cyan2 {
-    color: #2D6187;
+    color: #2D6187 !important ;
   }
   .cyan3 {
     background-color: #EFFAD3;
