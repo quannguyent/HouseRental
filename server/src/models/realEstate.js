@@ -54,7 +54,7 @@ const realEstateSchema = new mongoose.Schema({
         require: true
     },
     features: {
-        type: Array,
+        type: String,
         require: true
     },
     imagePath: {
