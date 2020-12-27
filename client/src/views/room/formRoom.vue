@@ -34,7 +34,6 @@
             required
           ></b-form-input>
         </b-form-group>
-
         <!-- price -->
         <b-row>
           <b-col>
@@ -161,7 +160,7 @@
             required
           ></b-form-input>
         </b-form-group>
-        <!-- features -->
+        <!-- features: tiện ích -->
         <b-form-group id="input-group-2" label="Tiện ích:" label-for="input-2">
           <b-form-textarea
             id="textarea"
@@ -221,12 +220,17 @@
           ></b-form-file>
         </b-form-group>
 
+        <div v-if="form.imagePath.length > 0">
+          <img v-for="img in form.imagePath" :key="img" :src="'/img/'+ img" width="90px" height="90px" class="m-2" />
+        </div>
+        <br />
+
         <!-- <span v-for="file in form.imagePath" :key = "file">
           
         </span> -->
 
         <div v-if="isNewRoom" class="float-right">
-          <b-button type="reset" variant="info" class="m-2">Trở lại</b-button>
+          <b-button type="reset" variant="info" class="m-2">Quay lại</b-button>
           <b-button type="submit" variant="primary" class="m-2 mr-0"
             >Tạo phòng mới</b-button
           >
@@ -270,13 +274,12 @@ export default {
         kitchenDetail: "",
       },
       typeRealEstates: [
-        { text: "", value: null },
         "Phòng trọ",
         "Chung cư",
         "Nhà nguyên căn",
         "Trung cư nguyên căn",
       ],
-      pricePer: [{ text: "", value: null }, "Tháng", "Quý", "Năm"],
+      pricePer: [ "Tháng", "Quý", "Năm"],
       show: true,
       isNewRoom: true,
     };
@@ -318,8 +321,6 @@ export default {
       else {
         URLreq = "http://localhost:8081/api/real-estate/add-property"
       }
-        console.log(URLreq)
-        console.log(token)
       axios
         .post(URLreq, this.form, {
           headers: {
@@ -329,46 +330,30 @@ export default {
         .then((res) => {
           console.log(res);
           this.$toast.open({
-            message: "Phòng đã được cập nhật",
+            message: this.$route.params.id ? "Phòng đã được cập nhật" : "Phòng đã được thêm mới",
             type: "success",
-            duration: 5000,
+            duration: 2000,
             dismissible: true,
+            position:"top-right"
           });
+
+            this.$router.push("/room");
+
         })
         .catch((err) => {
           console.log(err.response);
         });
-      console.log(event);
-      event.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset(event) {
-      if (this.$route.params.id) {
-        this.$router.push("/room");
-      } else {
         event.preventDefault();
-        // Reset our form values
-        this.form.title = "";
-        this.form.description = "";
-        this.form.note = "";
-        this.form.price = null;
-        this.form.pricePer = "";
-        this.form.electricPrice = null;
-        this.form.waterPrice = "";
-        this.form.typeRealState = "";
-        this.form.city = "";
-        this.form.state = "";
-        this.form.addressDetail = "";
-        this.form.features = [];
-        this.form.imagePath = [];
-
-        // Trick to reset/clear native browser form validation state
+    },
+    onReset() {
+      event.preventDefault();
+      // Trick to reset/clear native browser form validation state
         this.show = false;
         this.$nextTick(() => {
           this.show = true;
         });
-      }
-    },
+        this.$router.push("/room");      
+    }
   },
   created() {
     if (this.$route.params.id) {
