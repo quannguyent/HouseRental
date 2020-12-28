@@ -26,7 +26,7 @@
                 :options="typeRealEstates"
                 required
               ></b-form-select>
-        <b-button class="mb-4 mr-sm-4 mb-sm-4" @click="getDataRoomsSearch" variant="primary">Tìm</b-button>
+        <b-button class="mb-4 mr-sm-4 mb-sm-4" @click="getDataRoomsSearch" variant="info">Tìm</b-button>
       </b-form>
     </div>
 
@@ -41,15 +41,16 @@
           :img-src="'/img/' + room.imagePath[0]"
           img-alt="Image"
           img-top
+          img-height="225vh"
           tag="article"
           style="max-width: 20rem"
           class="mb-2 p-1"
         >
-          <b-card-title style="color: #28abb9">
+          <b-card-title style="color: #2D6187">
             <b-icon icon="house-fill"></b-icon>
             {{ room.title }}
           </b-card-title>
-          <b-card-text style="color: #28abb9">
+          <b-card-text style="color: #2D6187">
             <div>
               <b-icon-geo-alt-fill />
               {{ room.addressDetail }}
@@ -61,6 +62,7 @@
                 style="color: #28abb9"
                 icon="heart"
                 class="float-right"
+                font-scale="1.5"
               ></b-icon>
             </div>
           </b-card-text>

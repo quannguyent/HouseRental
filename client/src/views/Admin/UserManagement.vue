@@ -18,7 +18,7 @@ export default {
         return {
             listUser: [{
             firstname : String,
-            lastname : String,
+            lastName : String,
             username : String,
             password : String,
             isLogin : Boolean,

@@ -9,14 +9,14 @@
         background-attachment: fixed;
         background-size: cover;
         background-size: 100% 100%;">
-           <b-button variant="outline-primary" style="backgroundColor:#2d6187 " active to='/roomSearch'>Khám phá ngay
+           <b-button variant="outline-primary" style="backgroundColor:#2d6187; color:white" to='/roomSearch'>Khám phá ngay
               <b-icon icon="search" style="color:white" class="ml-2"></b-icon>
            </b-button>
       </b-jumbotron>
     </div>
     <div>
       <b-jumbotron bg-variant="light" class="p-5" style="max-height:10vh">
-        <div class="ml-5" style="color:#28abb9, font-size:20%">
+        <div class="ml-5" style="background-color:#28abb9, font-size:20%">
           <p class="h4">TÌM KIẾM HÀNG ĐẦU</p>
         </div>
       </b-jumbotron>
@@ -29,7 +29,7 @@
         </div>
       </b-jumbotron>
     </div>
-
+    <Places/>
     <div>
       <b-jumbotron bg-variant="light" class="p-5" style="max-height:10vh">
         <div class="ml-5" style="color:#28abb9, font-size:20%">
@@ -37,15 +37,19 @@
         </div>
       </b-jumbotron>
     </div>
-    <Post/>
+    <Recommended/>
   </div>
 </template>
 
 <script>
 import Post from './HomeContent/Post.vue'
+import Recommended from './HomeContent/Recommended.vue'
+import Places from './HomeContent/Places.vue'
 export default {
   components: {
-    Post
+    Post,
+    Recommended,
+    Places
   }
 }
 </script>

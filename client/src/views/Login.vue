@@ -6,24 +6,24 @@
                 <b-icon-person-circle font-scale="4" class="mb-4"></b-icon-person-circle>
                 <h1 class="h3 mb-3 fw-normal">Đăng nhập</h1>
               </div>
-              <label for="inputEmail" class="visually-hidden">Tên đăng nhập:</label>
-              <input type="text" id="inputEmail" class="form-control" v-model="username" placeholder="Username" required autofocus>
-              <label for="inputPassword" class="visually-hidden mt-2">Mật khẩu:</label>
-              <input type="password" id="inputPassword" v-model="password" class="form-control" placeholder="Password" required>
-              <div class="checkbox mb-3">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div>
+                <label for="inputEmail" class="visually-hidden">Tên đăng nhập:</label>
+                <input type="text" id="inputEmail" class="form-control" v-model="username" placeholder="Username" required autofocus>
+                <label for="inputPassword" class="visually-hidden mt-2">Mật khẩu:</label>
+                <input type="password" id="inputPassword" v-model="password" class="form-control" placeholder="Password" required>
+                <div class="checkbox mb-3">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
 
-              <div class="mx-auto">
-                {{check_status}}
-              </div>
-              <button class="w-100 btn btn-lg btn-primary round" style="background-color:#28abb9" type="submit" @click="sendAPI()">Sign in</button>
-              <div align="center">
-                <b-nav-text>Chưa có tài khoản?
-                <b-nav-item href="#" to="/signup" style="list-style-type: none;">Đăng ký ngay</b-nav-item>
-              </b-nav-text> 
+                <div class="mx-auto">
+                  {{check_status}}
+                </div>
+                <button class="w-100 btn btn-lg btn-primary round" style="background-color:#28abb9" type="submit" @click="sendAPI()">Sign in</button>
+                <div align="center">
+                  <b-nav-text>Chưa có tài khoản?
+                  <b-nav-item href="#" to="/signup" style="list-style-type: none;">Đăng ký ngay</b-nav-item>
+                </b-nav-text> 
               </div>
             </form> 
     </div>
@@ -33,6 +33,7 @@
 <script>
 import axios from "axios"
 import cookieCRUD from "../mixins/cookie.js"
+
   export default {
     name : 'login',
     mixins: [cookieCRUD],

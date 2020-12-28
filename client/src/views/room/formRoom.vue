@@ -1,6 +1,6 @@
 <template>
   <b-container fluid="xl">
-    <div class="text-center m-5">
+    <div class="text-center" style="margin-top:10vh">
       <h2 v-if="isNewRoom">Tạo bài viết mới</h2>
       <h2 v-if="!isNewRoom">Sửa bài viết</h2>
     </div>
@@ -230,15 +230,15 @@
         </span> -->
 
         <div v-if="isNewRoom" class="float-right">
-          <b-button type="reset" variant="info" class="m-2">Quay lại</b-button>
-          <b-button type="submit" variant="primary" class="m-2 mr-0"
+          <b-button type="reset" variant="danger" class="m-2">Quay lại</b-button>
+          <b-button type="submit" variant="info" class="m-2 mr-0"
             >Tạo phòng mới</b-button
           >
         </div>
 
         <div v-if="!isNewRoom" class="float-right">
-          <b-button type="reset" variant="info" class="m-2">Quay lại</b-button>
-          <b-button type="submit" variant="primary" class="m-2 mr-0"
+          <b-button type="reset" variant="danger" class="m-2">Quay lại</b-button>
+          <b-button type="submit" variant="info" class="m-2 mr-0"
             >Sửa thông tin phòng</b-button
           >
         </div>
