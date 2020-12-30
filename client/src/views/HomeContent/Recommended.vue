@@ -78,9 +78,9 @@
         </div>
 
         <div class="col">
-          <div class="card shadow-sm" @click="toDetailRoom(rooms[3].id)">
+          <div class="card shadow-sm" @click="toDetailRoom(rooms[2].id)">
             <b-card
-              :img-src="'/img/' + rooms[3].imagePath[0]"
+              :img-src="'/img/' + rooms[2].imagePath[0]"
               img-alt="Image"
               img-top
               img-height="225vh"
@@ -90,16 +90,16 @@
             >
               <b-card-title style="color: #2D6187" class="mb-3">
                 <b-icon icon="house-fill"></b-icon>
-                {{ rooms[3].title }}
+                {{ rooms[2].title }}
               </b-card-title>
               <b-card-text style="color: #2D6187">
                 <div class="mb-2">
                   <b-icon-geo-alt-fill />
-                  {{ rooms[3].addressDetail }}
+                  {{ rooms[2].addressDetail }}
                 </div>
                 <div>
                   <b-icon-tag-fill />
-                  {{ rooms[3].price }}
+                  {{ rooms[2].price }}
                   <b-icon
                     style="color: #28abb9"
                     icon="heart"
@@ -162,6 +162,7 @@ export default {
   },
   created() {
     this.getDataRoomsSearch();
+    console.log(this.rooms)
   }
 };
 </script>

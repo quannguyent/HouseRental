@@ -16,7 +16,7 @@
             required
           ></b-form-input>
         </b-form-group>
-        <div v-if="show"></div>
+        <div v-if="show"></div> 
         <!-- description -->
         <b-form-group id="input-group-2" label="Mô tả:" label-for="input-2">
           <b-form-textarea
@@ -31,7 +31,6 @@
             id="input-2"
             v-model="form.note"
             placeholder="Ghi chú"
-            required
           ></b-form-input>
         </b-form-group>
         <!-- price -->

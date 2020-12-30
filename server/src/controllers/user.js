@@ -128,6 +128,7 @@ usersRouter.post("/add-favorites", async (req, res) => {
     }
     return res.status(400).send("Bad request")
 })
+
 usersRouter.get("/images/:name", async (req, res) => {
     res.sendFile(path.join(process.cwd(), `/images/${req.params.name}`))
 })

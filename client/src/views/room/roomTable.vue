@@ -79,7 +79,7 @@
       <div class="col-2 text-center mt-2">
         <div class="font-weight-bold">Hành động</div>
         <div class="mt-2">
-          <button
+          <button v-if="admin"
             class="btn btn-icon btn-light btn-hover-success btn-sm m-2"
             @click="showConfirmApprove(room.id)"
           >
@@ -117,6 +117,7 @@ export default {
       title: ["Tiêu đề", "Kiểu phòng"],
       idRoomDelete: "",
       idRoomApprove: "",
+      admin: Boolean
     };
   },
 
@@ -221,6 +222,16 @@ export default {
   },
   created() {
     this.getDataRooms();
+    const token = this.getCookie("token");
+    axios.get("http://localhost:8081/api/user/user-info/", {
+      headers: {
+        'Authorization': 'Bearer '+ token,
+      },
+    })
+    .then (res => {
+    this.admin = (res.data.typeAccount == 2);  
+    console.log(this.admin)  
+    })
   },
 };
 </script>

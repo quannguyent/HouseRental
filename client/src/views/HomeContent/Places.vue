@@ -6,12 +6,43 @@
         <div class="col">
           <div class="card shadow-sm" @click="toSearch()">
             <b-card
+              img-src="/img/hanoi.jpg"
               tag="article"
               style="max-width: 25rem;"
               class="p-1"
             >
-              <b-card-title style="color: #2D6187" class="mb-3">
+              <b-card-title style="color: #2D6187">
                 Hà Nội
+              </b-card-title>
+            </b-card>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm" @click="toSearch()">
+            <b-card
+              img-src="/img/hochiminh.jpg"
+              tag="article"
+              style="max-width: 25rem;"
+              class="p-1"
+            >
+              <b-card-title style="color: #2D6187">
+                Hồ Chí Minh
+              </b-card-title>
+            </b-card>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm" @click="toSearch()">
+            <b-card
+              img-src="/img/danang.jpg"
+              tag="article"
+              style="max-width: 25rem;"
+              class="p=1"
+            >
+              <b-card-title style="color: #2D6187">
+                Đà Nẵng
               </b-card-title>
             </b-card>
           </div>

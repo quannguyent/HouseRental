@@ -2,6 +2,7 @@ const realEstateRouter = require("express").Router()
 const { getTokenFrom } = require("../../utils");
 const RealEstate = require("../models/realEstate");
 const jwt = require('jsonwebtoken');
+
 realEstateRouter.get("/get-list-property", async (req, res) => {
     const token = getTokenFrom(req)
     const decodedToken = jwt.verify(token, process.env.SECRET)
@@ -57,18 +58,20 @@ realEstateRouter.post("/for-fake-data", (req, res) => {
     // let realState = new RealState
     res.status(401).end()
 })
+
 //getById
 realEstateRouter.get("/get-property/:id", async (req, res) => {    
     const id = req.params.id;
     console.log(id)
-    const token = getTokenFrom(req)
-    const decodedToken = jwt.verify(token, process.env.SECRET)
-    if (!token || !decodedToken.id) {
-        return res.status(401).json({ error: 'token missing or invalid' })
-    }
-    let property = await RealEstate.findOne({ userId: decodedToken.id ,_id: id})
+    // const token = getTokenFrom(req)
+    // const decodedToken = jwt.verify(token, process.env.SECRET)
+    // if (!token || !decodedToken.id) {
+    //     return res.status(401).json({ error: 'token missing or invalid' })
+    // }
+    let property = await RealEstate.findOne({ _id: id})
     res.status(200).json(property)
 })
+
 //edit
 realEstateRouter.post("/edit-property/:id", async (req, res) => {
     const id = req.params.id;

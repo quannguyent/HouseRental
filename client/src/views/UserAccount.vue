@@ -5,7 +5,7 @@
     <b-card align="center" style="min-height:15rem">
       <b-avatar size="72px" style="margin-top:5rem"></b-avatar> 
         <br>
-        <h2 style="color:#2D6187">Quân Nguyễn{{ username }}</h2>
+        <h2 style="color:#2D6187">{{ usr.lastName }} {{ usr.firstName }}</h2>
     </b-card>
 
     <b-tabs pills card vertical variant="info">
@@ -40,7 +40,10 @@ import Favorite from "./User/Favorite"
 import Notification from "./User/Notification"
 import Estate from "./User/Estate"
 import Chat from "./User/Chat"
-
+import axios from 'axios'
+import cookieCRUD from "../mixins/cookie.js"
+import authToken from "../mixins/authToken.js"
+  
 export default {
     components: {
       UserInfo,
@@ -48,12 +51,28 @@ export default {
       Chat,
       Estate,
       Notification
-},
-    data () {
-      return {
-         usr: ""
-      }
-    },
+  },
+  mixins : [cookieCRUD, authToken],
+  data: () => {
+    return {
+    usr: {}
+    }
+  },
+  mounted() {
+    const token = this.getCookie("token");
+    axios.get("http://localhost:8081/api/user/user-info/", {
+        headers: {
+          'Authorization': 'Bearer '+ token,
+        },
+      })
+        .then(res => {
+          console.log(res.data);
+          this.usr = res.data;
+        })
+        .catch(err => {
+          console.log(err.response)
+        })
+  }
 }
 </script>
 

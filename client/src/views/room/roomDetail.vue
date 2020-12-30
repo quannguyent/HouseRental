@@ -1,21 +1,31 @@
 <template>
-<b-jumbotron align="center p-1" style="margin-top:10vh; margin-left:15vw; margin-right:15vw">
-  <div class="m-5 p-5" align="left">
-    <b-img 
-      src="'/img/' + room.imagePath[0]"
-      fluid
-      height="50vh"
-      width="70vw"
-    >
-    </b-img>
-    <div class="title">
-      <h1> {{room.title}} </h1>
-      <b-leader> {{room.addressDetail}} </b-leader>
-      <p>{{room.price}}/{{room.pricePer}}</p>
-    </div>  
+<b-jumbotron align="center p-0" style="margin-left:15vw; margin-right:15vw">
+  <div class="m-5" align="left">
+
+    <div class="title mt-0 pt-0">
+      <h1 style="color:#28abb9"> {{room.title}} </h1>
+      <b-leader> <b-icon-geo-alt-fill/> {{room.addressDetail}} </b-leader>
+      <p><b-icon-tag-fill/> {{room.price}}/{{room.pricePer}}</p>
+    </div>
+
+    <b-row class="mt-3">
+    <b-col>
+      <b-row>
+        <img :src="'/img/' + room.imagePath[0]" alt="i1" width="500rem" height="400rem" class="m-2">
+      </b-row>
+    </b-col>
+    <b-col>
+      <b-row>
+        <img :src="'/img/' + room.imagePath[1]" alt="i2" width="250rems" height="190rem" class="m-2">
+      </b-row>
+      <b-row> 
+        <img :src="'/img/' + room.imagePath[2]" alt="i3" width="250rems" height="190rem" class="m-2">
+      </b-row>
+    </b-col>
+    </b-row>  
       
-    <div class="features">
-      <h2>Thông tin chi tiết</h2>
+    <div class="features mt-3">
+      <h2 style="color:#2d6187">Thông tin chi tiết</h2>
       <b-container class="m-0 mb-3">
       <b-row cols="4" class="m-0 mb-3">
         <b-col cols="2" md="2">Loại phòng:</b-col>
@@ -43,8 +53,8 @@
     </b-container>
     </div> 
 
-    <div class="description">
-      <h2> Mô tả </h2>
+    <div class="description mt-3">
+      <h2 style="color:#2d6187"> Mô tả </h2>
       <p> {{room.description}} </p> <br>
     </div> 
 
@@ -53,8 +63,8 @@
     </div>
     
     <div class="contact">
-      <b-button style="width:10vw; margin-right:1vw; background-color:#ff4646">Yêu thích</b-button>
-      <b-button style="width:10vw; margin-right:1vw; background-color:#28abb9">Liên hệ</b-button>
+      <b-button style="width:10vw; margin-right:1vw; background-color:#ef4f4f"><b-icon-heart/>  Yêu thích</b-button>
+      <b-button style="width:10vw; margin-right:1vw; background-color:#16c79a"><b-icon-telephone/>    Liên hệ</b-button>
     </div>
   </div>
 </b-jumbotron>
@@ -85,6 +95,7 @@ export default {
         .then((res) => {
           this.room = res.data;
           console.log(this.room);
+          console.log(res.data)
         })
         .catch((err) => {
           console.log(err.response);

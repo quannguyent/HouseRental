@@ -1,7 +1,7 @@
 <template>
-  <div class="container m-5 p-5">
+  <b-container class="p-5 mt-5" style="margin-left: 15vw, margin-right: 15vw ">
     <!-- filter -->
-    <div class="">
+    <div class="" >
 
       <b-form inline >
         <!-- filterTitle -->
@@ -26,7 +26,7 @@
                 :options="typeRealEstates"
                 required
               ></b-form-select>
-        <b-button class="mb-4 mr-sm-4 mb-sm-4" @click="getDataRoomsSearch" variant="info">Tìm</b-button>
+        <b-button class="mb-4 mr-sm-4 mb-sm-4" style="width:7vw" @click="getDataRoomsSearch" variant="info">Tìm</b-button>
       </b-form>
     </div>
 
@@ -69,7 +69,7 @@
         </b-card>
       </div>
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
